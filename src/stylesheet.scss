@@ -2,19 +2,36 @@ $text-color: rgb(0, 0, 0);
 $primary-color: rgb(255, 0, 0);
 $secondary-color: rgb(255, 173, 173);
 
+.header_holder{
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 2vw;
+  &--responsive{
+    @extend .header_holder;
+  }
+}
 .header_logo {
   font-size: 10em;
-  margin-left: 60px;
+  margin-top: 1vw;
+  margin-left: 1vw;
 }
 .header_title {
   font-size: 8em;
   padding-top: 80px;
   margin-left: 10vw;
 }
-.header_links {
+.header_links_col {
   font-size: 1.5em;
   margin-top: 90px;
-  margin-left: 40px;
+}
+.header_links_row{
+  font-size: 1.5em;
+  margin-top: 0;
+}
+.header_link{
+  padding-left: 21px;
+  padding-right: 21px;
 }
 .header_links_sticky {
   font-size: 2em;
@@ -22,10 +39,11 @@ $secondary-color: rgb(255, 173, 173);
   margin-bottom: 20px;
   background-color: #ffffff;
 }
+
 .para {
   width: 40vw;
   font-size: 2em;
-  margin-top: 90px;
+  margin-top: 30vh;
   margin-left: 60px;
   .button {
     display: inline-block;

@@ -15,29 +15,84 @@ import _ from "lodash";
 import pic from "./assets/image.jpg";
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isDesktop: false,
+      headNavHeight: 0,
+    };
+    this.updatePredicate = this.updatePredicate.bind(this);
+  }
+
+  componentDidMount() {
+    let height = this.divElement.clientHeight
+    this.updateHeadNavHeight(height)
+    this.updatePredicate();
+    window.addEventListener("resize", this.updatePredicate);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updatePredicate);
+  }
+
+  updatePredicate = () => {
+    this.setState({ isDesktop: window.innerWidth > 1220 });
+  };
+  updateHeadNavHeight = (height) => {
+    this.setState({ headNavHeight: height});
+  }
+
   contextRef = createRef();
   render() {
+    const isDesktop = this.state.isDesktop;
+
     return (
       <div>
-        <div style={{ height: "97vh" }}>
-          <Grid columns={2}>
-            <Grid.Column width={2}>
-              <h1 className="header_logo">tn.</h1>
-            </Grid.Column>
-            <Grid.Column width={14}>
-              <div className="header_links">
-                <p>
-                  <a href="https://tenzinnorden.com/">Link 1</a>
-                </p>
-                <p>
-                  <a href="https://tenzinnorden.com/">Link 2</a>
-                </p>
-                <p>
-                  <a href="https://tenzinnorden.com/">Link 3</a>
-                </p>
-              </div>
-            </Grid.Column>
-          </Grid>
+        <div style={{ height: "97vh"}}>
+          {this.state.headNavHeight}
+          {isDesktop ? (
+            <div ref={(divElement) => { this.divElement = divElement } } className="header_holder">
+              <Grid container columns={2}>
+                <Grid.Column width={3}>
+                  <h1 className="header_logo">tn.</h1>
+                </Grid.Column>
+                <Grid.Column width={3}>
+                  <div className="header_links_col">
+                    <p>
+                      <a href="https://tenzinnorden.com/">Link 1</a>
+                    </p>
+                    <p>
+                      <a href="https://tenzinnorden.com/">Link 2</a>
+                    </p>
+                    <p>
+                      <a href="https://tenzinnorden.com/">Link 3</a>
+                    </p>
+                  </div>
+                </Grid.Column>
+              </Grid>
+            </div>
+          ) : (
+            <div ref={(divElement) => { this.divElement = divElement }} className="header_holder header_holder--responsive">
+              <Grid container>
+                <Grid.Row>
+                  <h1 className="header_logo">tn.</h1>
+                </Grid.Row>
+                <Grid.Row style={{ padding: 0 }}>
+                  <div className="header_links_row">
+                    <a className="header_link" href="https://tenzinnorden.com/">
+                      Link 1
+                    </a>
+                    <a className="header_link" href="https://tenzinnorden.com/">
+                      Link 1
+                    </a>
+                    <a className="header_link" href="https://tenzinnorden.com/">
+                      Link 1
+                    </a>
+                  </div>
+                </Grid.Row>
+              </Grid>
+            </div>
+          )}
           <div className="para">
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -79,28 +134,28 @@ export default class App extends React.Component {
               <h1 className="header_title">my projects</h1>
               <Grid centered>
                 <Grid.Row>
-                  <Grid.Column width={3}>
+                  <Grid.Column>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column width={3}>
+                  <Grid.Column>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column width={3}>
+                  <Grid.Column>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column width={3}>
+                  <Grid.Column>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
