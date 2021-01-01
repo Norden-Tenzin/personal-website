@@ -1,0 +1,30 @@
+contact me
+	- github
+	- instagram
+	- resume 
+	- linkedIn
+	- email
+	-
+	
+my projects
+	- train schedule for database class
+	- flutter apps
+	- empire web dev
+	- multiplayer chess python 
+ 	- website 
+ 	- 
+ 
+ interactive element
+ 	- text to morse code
+ 
+ contact me
+ 	- phone num
+ 	- email 
+ 	- linked in  	
+ 	- github
+	- instagram
+	- resume 
+	- linkedIn
+	- email
+	
+Im using this to write about my life so far. I

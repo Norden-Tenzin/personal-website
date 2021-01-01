@@ -1,4 +1,8 @@
 import React, { createRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore from "swiper";
+import "swiper/swiper-bundle.css";
+
 import "./stylesheet.scss";
 import {
   Card,
@@ -10,23 +14,33 @@ import {
   Menu,
   Input,
   Segment,
+  Form,
+  TextArea,
+  GridColumn,
 } from "semantic-ui-react";
 import _ from "lodash";
+//my import
+import * as morse from "./morse";
+import CFE from "./CoverflowEffect";
+// import Github from "./svg";
 import pic from "./assets/image.jpg";
+import githubIcon from "./assets/github.svg";
+import instagramIcon from "./assets/instagram.svg";
+import emailIcon from "./assets/email.svg";
+import linkedinIcon from "./assets/linkedin.svg";
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isDesktop: false,
-      headNavHeight: 0,
+      english: "",
+      morse: "",
     };
     this.updatePredicate = this.updatePredicate.bind(this);
   }
 
   componentDidMount() {
-    let height = this.divElement.clientHeight
-    this.updateHeadNavHeight(height)
     this.updatePredicate();
     window.addEventListener("resize", this.updatePredicate);
   }
@@ -38,20 +52,40 @@ export default class App extends React.Component {
   updatePredicate = () => {
     this.setState({ isDesktop: window.innerWidth > 1220 });
   };
-  updateHeadNavHeight = (height) => {
-    this.setState({ headNavHeight: height});
-  }
+
+  englishInput = (e) => {
+    this.setState({ english: "" });
+    this.setState({ morse: "" });
+
+    let x = morse.eToM(e.target.value);
+    console.log(x);
+    // console.log(this.state.morse);
+
+    this.setState({ english: e.target.value });
+    this.setState({ morse: x });
+  };
+
+  morseInput = (e) => {
+    this.setState({ english: "" });
+    this.setState({ morse: "" });
+
+    let x = morse.mToE(e.target.value);
+    console.log(x);
+    // console.log(this.state.morse);
+
+    this.setState({ english: x });
+    this.setState({ morse: e.target.value });
+  };
 
   contextRef = createRef();
   render() {
-    const isDesktop = this.state.isDesktop;
 
+    const isDesktop = this.state.isDesktop;
     return (
       <div>
-        <div style={{ height: "97vh"}}>
-          {this.state.headNavHeight}
+        <div className="landing">
           {isDesktop ? (
-            <div ref={(divElement) => { this.divElement = divElement } } className="header_holder">
+            <div className="header_holder">
               <Grid container columns={2}>
                 <Grid.Column width={3}>
                   <h1 className="header_logo">tn.</h1>
@@ -72,9 +106,9 @@ export default class App extends React.Component {
               </Grid>
             </div>
           ) : (
-            <div ref={(divElement) => { this.divElement = divElement }} className="header_holder header_holder--responsive">
+            <div className="header_holder--responsive">
               <Grid container>
-                <Grid.Row>
+                <Grid.Row style={{ padding: 0 }}>
                   <h1 className="header_logo">tn.</h1>
                 </Grid.Row>
                 <Grid.Row style={{ padding: 0 }}>
@@ -95,17 +129,44 @@ export default class App extends React.Component {
           )}
           <div className="para">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+              Hi!!,
+              <br />
+              I'm Tenzin Norden, a Computer Science student at Rutgers
+              University currently in my senior year. planning to graduate in
+              2021. Before coming to Rutgers I got my Associate of Science
+              majoring in CS from Middlesex County College. In my spare time I
+              like to work on web and mobile app development projects. Other
+              than that i enjoy making digital art, playing Video games and
+              cooking. <br />
+              Currently residing in New Brunswick, NJ.
             </p>
-            <a href="https://tenzinnorden.com/" className="button">
+            {/* <a href="https://tenzinnorden.com/" className="button_red">
               Contact me
-            </a>
+            </a> */}
+            <Grid>
+              <Grid.Row>
+                <GridColumn>
+                  <a href="https://github.com/Norden-Tenzin">
+                    <img src={githubIcon} className="icon" />
+                  </a>
+                </GridColumn>
+                <GridColumn>
+                  <a href="www.linkedin.com/in/tenzin-norden">
+                    <img src={linkedinIcon} className="icon" />
+                  </a>
+                </GridColumn>
+                <GridColumn>
+                  <a href="https://www.instagram.com/nordten/">
+                    <img src={instagramIcon} className="icon" />
+                  </a>
+                </GridColumn>
+                <GridColumn>
+                  <a href="mailto:tenzinnorden29@gmail.com">
+                    <img src={emailIcon} className="icon" />
+                  </a>
+                </GridColumn>
+              </Grid.Row>
+            </Grid>
           </div>
         </div>
         <div ref={this.contextRef}>
@@ -114,48 +175,48 @@ export default class App extends React.Component {
               <Grid centered>
                 <Grid.Row>
                   <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Link 1</a>
+                    <a href="https://tenzinnorden.com/">Home</a>
                   </Grid.Column>
                   <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Link 2</a>
+                    <a href="https://tenzinnorden.com/">My Projects</a>
                   </Grid.Column>
                   <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Link 3</a>
+                    <a href="https://tenzinnorden.com/">Morse Demo</a>
                   </Grid.Column>
                   <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Link 4</a>
+                    <a href="https://tenzinnorden.com/">Contact Me</a>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
             </div>
           </Sticky>
           <div>
-            <div style={{ height: "97vh", backgroundColor: "#b3f542" }}>
+            <div className="my_projects">
               <h1 className="header_title">my projects</h1>
               <Grid centered>
                 <Grid.Row>
-                  <Grid.Column>
+                  <Grid.Column width={3}>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column>
+                  <Grid.Column width={3}>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column>
+                  <Grid.Column width={3}>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
                       <p className="detail">Some Text</p>
                     </section>
                   </Grid.Column>
-                  <Grid.Column>
+                  <Grid.Column width={3}>
                     <section className="card">
                       <img src={pic} className="image" />
                       <p className="header">header</p>
@@ -165,13 +226,68 @@ export default class App extends React.Component {
                 </Grid.Row>
               </Grid>
             </div>
-            <div
-              style={{ height: "97vh", backgroundColor: "#fcba03" }}
-              className="interactive"
-            >
-              <section className="card">
-                <header className="header_title">Interactive element</header>
-              </section>
+            <div className="interactive">
+              <div className="card">
+                <h1 className="header_title">
+                  English to Morse and back translator
+                </h1>
+                <div className="text_area_holder">
+                  <Form size="massive">
+                    <TextArea
+                      className="text_area"
+                      id="english"
+                      placeholder="English"
+                      value={this.state.english}
+                      onChange={this.englishInput}
+                    />
+                    <TextArea
+                      className="text_area"
+                      id="morse"
+                      placeholder="Morse"
+                      value={this.state.morse}
+                      onChange={this.morseInput}
+                    />
+                  </Form>
+                </div>
+              </div>
+            </div>
+            <div className="contact_me">
+              <div className="card">
+                <h1 className="header_title">About Me</h1>
+                <p>if you have any queestions please feel free to email me</p>
+                
+                <CFE/>
+                
+              </div>
+            </div>
+            <div className="end">
+              <Grid centered>
+                <Grid.Row>
+                  <GridColumn>
+                    <a href="https://github.com/Norden-Tenzin">
+                      <img src={githubIcon} className="icon" />
+                    </a>
+                  </GridColumn>
+                  <GridColumn>
+                    <a href="www.linkedin.com/in/tenzin-norden">
+                      <img src={linkedinIcon} className="icon" />
+                    </a>
+                  </GridColumn>
+                  <GridColumn>
+                    <a href="https://www.instagram.com/nordten/">
+                      <img src={instagramIcon} className="icon" />
+                    </a>
+                  </GridColumn>
+                  <GridColumn>
+                    <a href="mailto:tenzinnorden29@gmail.com">
+                      <img src={emailIcon} className="icon" />
+                    </a>
+                  </GridColumn>
+                </Grid.Row>
+                <Grid.Row>
+                  <h1 className="header_title">Thanks for visiting!! </h1>
+                </Grid.Row>
+              </Grid>
             </div>
           </div>
         </div>
