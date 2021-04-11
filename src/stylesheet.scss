@@ -8,36 +8,48 @@ $secondary-color: rgb(255, 173, 173);
     height: 40px;
     width: 40px;
   }
-  .para {
-    width: 75%;
-    font-size: 1.7em;
+  .introduction {
     margin-top: 35vh;
     margin-left: 40px;
-    .button_red {
-      display: inline-block;
-      padding: 0.5em 0.8em;
-      border: 0.1em solid $primary-color;
-      background-color: $secondary-color;
-      border-radius: 0.12em;
-      box-sizing: border-box;
-      text-decoration: none;
-      font-family: "Roboto", sans-serif;
-      font-weight: 300;
-      text-align: center;
-      transition: all 0.2s;
-      color: $primary-color;
+    
+    // red contact me button not used
+    // .button_red {
+    //   display: inline-block;
+    //   padding: 0.5em 0.8em;
+    //   border: 0.1em solid $primary-color;
+    //   background-color: $secondary-color;
+    //   border-radius: 0.12em;
+    //   box-sizing: border-box;
+    //   text-decoration: none;
+    //   font-family: "Roboto", sans-serif;
+    //   font-weight: 300;
+    //   text-align: center;
+    //   transition: all 0.2s;
+    //   color: $primary-color;
 
-      // &hover {
-      //     color: #000000;
-      //      background-color: #ffffff;
-      // }
+    //   // &hover {
+    //   //     color: #000000;
+    //   //      background-color: #ffffff;
+    //   // }
+    // }
+
+    .paragraph{
+      width: 75%;
+      font-size: 1.7em;
+      font-size: clamp(1em, 4vw, 2em);
     }
   }
 }
 .my_projects {
   height: 97vh;
   background-color: #b3f542;
+  & .header_title {
+    font-size: 8em;
+    padding-top: 80px;
+    margin-left: 10vw;
+  }
 }
+
 .interactive {
   height: 97vh;
   background-color: #fcba03;
@@ -75,6 +87,7 @@ $secondary-color: rgb(255, 173, 173);
   }
 }
 
+// TODO about me not contact me
 .contact_me {
   height: 97vh;
   background-color: #b3f542;
@@ -153,11 +166,6 @@ $secondary-color: rgb(255, 173, 173);
 .header_logo {
   font-size: 10em;
 }
-.header_title {
-  font-size: 8em;
-  padding-top: 80px;
-  margin-left: 10vw;
-}
 .header_links_col {
   font-size: 1.5em;
   margin-top: 90px;
@@ -186,9 +194,10 @@ $secondary-color: rgb(255, 173, 173);
   background-color: #ffffff;
   & .image {
     padding: 0.5vh;
-    height: 40vh;
+    height: 30vh;
     width: 18vw;
     border-radius: 12px;
+    object-fit: cover;
   }
   & .header {
     margin-left: 10px;
@@ -258,7 +267,7 @@ $secondary-color: rgb(255, 173, 173);
 //   .swiper-slide-next{
 //   }
 //   .slide-inner{
-    
+
 //   }
 //   .entity-img{
 //     display:none;

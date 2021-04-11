@@ -79,7 +79,6 @@ export default class App extends React.Component {
 
   contextRef = createRef();
   render() {
-
     const isDesktop = this.state.isDesktop;
     return (
       <div>
@@ -127,8 +126,10 @@ export default class App extends React.Component {
               </Grid>
             </div>
           )}
-          <div className="para">
-            <p>
+
+
+          <div className="introduction">
+            <p className="paragraph">
               Hi!!,
               <br />
               I'm Tenzin Norden, a Computer Science student at Rutgers
@@ -145,22 +146,22 @@ export default class App extends React.Component {
             </a> */}
             <Grid>
               <Grid.Row>
-                <GridColumn>
+                <GridColumn width="1">
                   <a href="https://github.com/Norden-Tenzin">
                     <img src={githubIcon} className="icon" />
                   </a>
                 </GridColumn>
-                <GridColumn>
+                <GridColumn width="1">
                   <a href="www.linkedin.com/in/tenzin-norden">
                     <img src={linkedinIcon} className="icon" />
                   </a>
                 </GridColumn>
-                <GridColumn>
+                <GridColumn width="1">
                   <a href="https://www.instagram.com/nordten/">
                     <img src={instagramIcon} className="icon" />
                   </a>
                 </GridColumn>
-                <GridColumn>
+                <GridColumn width="1">
                   <a href="mailto:tenzinnorden29@gmail.com">
                     <img src={emailIcon} className="icon" />
                   </a>
@@ -169,6 +170,8 @@ export default class App extends React.Component {
             </Grid>
           </div>
         </div>
+
+        {/* sticky header bar */}
         <div ref={this.contextRef}>
           <Sticky context={this.contextRef}>
             <div className="header_links_sticky" attached="top">
@@ -190,6 +193,8 @@ export default class App extends React.Component {
               </Grid>
             </div>
           </Sticky>
+
+          {/* project showcase page */}
           <div>
             <div className="my_projects">
               <h1 className="header_title">my projects</h1>
@@ -226,11 +231,14 @@ export default class App extends React.Component {
                 </Grid.Row>
               </Grid>
             </div>
+
+            {/* morse code page */}
             <div className="interactive">
+              <h1 className="header_title"> Morse translator</h1>
               <div className="card">
-                <h1 className="header_title">
+                {/* <h1 className="header_title">
                   English to Morse and back translator
-                </h1>
+                </h1> */}
                 <div className="text_area_holder">
                   <Form size="massive">
                     <TextArea
@@ -251,15 +259,18 @@ export default class App extends React.Component {
                 </div>
               </div>
             </div>
+
+            {/* about me page */}
             <div className="contact_me">
               <div className="card">
                 <h1 className="header_title">About Me</h1>
                 <p>if you have any queestions please feel free to email me</p>
-                
-                <CFE/>
-                
+
+                <CFE />
               </div>
             </div>
+
+            {/* footer */}
             <div className="end">
               <Grid centered>
                 <Grid.Row>
