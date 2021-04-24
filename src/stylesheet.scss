@@ -86,24 +86,24 @@ $secondary-color: rgb(255, 173, 173);
       margin: 5px;
       border-radius: 12px;
       resize: none;
-      &:active{
+      &:active {
         background-color: #b3f542;
         border-radius: 12px;
       }
-      &:hover{
+      &:hover {
         background-color: #b3f542;
         border-radius: 12px;
       }
-      &:focus{
+      &:focus {
         border-radius: 12px;
         background-color: #b3f542;
-      } 
+      }
     }
   }
-  & .morse_helper_header{
+  & .morse_helper_header {
     font-size: clamp(2em, 6vw, 3em);
   }
-  & .morse_helper_text{
+  & .morse_helper_text {
     font-size: clamp(1em, 6vw, 2em);
   }
 }
@@ -219,15 +219,21 @@ $secondary-color: rgb(255, 173, 173);
 }
 .header_links_col {
   font-size: 1.5em;
-  margin-top: 90px;
+  margin-top: 80px;
+  .links {
+    font-size: clamp(0.55em, 2vw, 1.25em);
+    white-space: nowrap;
+    cursor: pointer;
+  }
 }
-.header_links_row {
-  font-size: 1.5em;
+.header_link{
   margin-top: 0;
-}
-.header_link {
-  padding-left: 21px;
+  // padding-left: 21px;
   padding-right: 21px;
+  font-size: 2em;
+  // font-size: clamp(0.55em, 2vw, 1.25em);
+  white-space: nowrap;
+  cursor: pointer;
 }
 .header_links_sticky {
   font-size: 2em;
@@ -238,6 +244,7 @@ $secondary-color: rgb(255, 173, 173);
     font-size: clamp(0.55em, 2vw, 2em);
     white-space: nowrap;
     text-align: center;
+    cursor: pointer;
     // border: 3px solid green;
   }
 }

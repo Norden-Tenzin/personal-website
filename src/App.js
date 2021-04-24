@@ -91,15 +91,46 @@ export default class App extends React.Component {
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <div className="header_links_col">
-                    <p>
-                      <a href="https://tenzinnorden.com/">Link 1</a>
-                    </p>
-                    <p>
-                      <a href="https://tenzinnorden.com/">Link 2</a>
-                    </p>
-                    <p>
-                      <a href="https://tenzinnorden.com/">Link 3</a>
-                    </p>
+                    <Link
+                      activeClass="active"
+                      to="home"
+                      spy={true}
+                      smooth={true}
+                      offset={-360}
+                      duration={500}
+                    >
+                      <h1 className="links">Home</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="projects"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">Projects</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="morse"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">Demo</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="about"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">About</h1>
+                    </Link>
                   </div>
                 </Grid.Column>
               </Grid>
@@ -111,17 +142,46 @@ export default class App extends React.Component {
                   <h1 className="header_logo">tn.</h1>
                 </Grid.Row>
                 <Grid.Row style={{ padding: 0 }}>
-                  <div className="header_links_row">
-                    <a className="header_link" href="https://tenzinnorden.com/">
-                      Link 1
-                    </a>
-                    <a className="header_link" href="https://tenzinnorden.com/">
-                      Link 1
-                    </a>
-                    <a className="header_link" href="https://tenzinnorden.com/">
-                      Link 1
-                    </a>
-                  </div>
+                  <Link
+                      activeClass="active"
+                      to="home"
+                      spy={true}
+                      smooth={true}
+                      offset={-360}
+                      duration={500}
+                    >
+                      <h1 className="header_link">Home</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="projects"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="header_link">Projects</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="morse"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="header_link">Demo</h1>
+                    </Link>
+                    <Link
+                      activeClass="active"
+                      to="about"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="header_link">About</h1>
+                    </Link>
                 </Grid.Row>
               </Grid>
             </div>
