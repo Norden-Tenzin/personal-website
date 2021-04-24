@@ -1,9 +1,9 @@
-import React, { createRef } from "react";
+import React, { createRef, Fragment } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
-import "swiper/swiper-bundle.css";
-
+import { Link } from "react-scroll";
 import "./stylesheet.scss";
+
 import {
   Card,
   Icon,
@@ -82,7 +82,7 @@ export default class App extends React.Component {
     const isDesktop = this.state.isDesktop;
     return (
       <div>
-        <div className="landing">
+        <div className="landing" id="home">
           {isDesktop ? (
             <div className="header_holder">
               <Grid container columns={2}>
@@ -127,7 +127,6 @@ export default class App extends React.Component {
             </div>
           )}
 
-
           <div className="introduction">
             <p className="paragraph">
               Hi!!,
@@ -144,8 +143,9 @@ export default class App extends React.Component {
             {/* <a href="https://tenzinnorden.com/" className="button_red">
               Contact me
             </a> */}
+
             <Grid>
-              <Grid.Row>
+              <Grid.Row padding>
                 <GridColumn width="1">
                   <a href="https://github.com/Norden-Tenzin">
                     <img src={githubIcon} className="icon" />
@@ -175,19 +175,55 @@ export default class App extends React.Component {
         <div ref={this.contextRef}>
           <Sticky context={this.contextRef}>
             <div className="header_links_sticky" attached="top">
-              <Grid centered>
-                <Grid.Row>
-                  <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Home</a>
+              <Grid>
+                <Grid.Row centered>
+                  <Grid.Column width={3}>
+                    <Link
+                      activeClass="active"
+                      to="home"
+                      spy={true}
+                      smooth={true}
+                      offset={-360}
+                      duration={500}
+                    >
+                      <h1 className="links">Home</h1>
+                    </Link>
                   </Grid.Column>
-                  <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">My Projects</a>
+                  <Grid.Column width={3}>
+                    <Link
+                      activeClass="active"
+                      to="projects"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">My Projects</h1>
+                    </Link>
                   </Grid.Column>
-                  <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Morse Demo</a>
+                  <Grid.Column width={3}>
+                    <Link
+                      activeClass="active"
+                      to="morse"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">Morse Demo</h1>
+                    </Link>
                   </Grid.Column>
-                  <Grid.Column width={2}>
-                    <a href="https://tenzinnorden.com/">Contact Me</a>
+                  <Grid.Column width={3}>
+                    <Link
+                      activeClass="active"
+                      to="about"
+                      spy={true}
+                      smooth={true}
+                      offset={-70}
+                      duration={500}
+                    >
+                      <h1 className="links">Contact Me</h1>
+                    </Link>
                   </Grid.Column>
                 </Grid.Row>
               </Grid>
@@ -196,78 +232,49 @@ export default class App extends React.Component {
 
           {/* project showcase page */}
           <div>
-            <div className="my_projects">
-              <h1 className="header_title">my projects</h1>
-              <Grid centered>
-                <Grid.Row>
-                  <Grid.Column width={3}>
-                    <section className="card">
-                      <img src={pic} className="image" />
-                      <p className="header">header</p>
-                      <p className="detail">Some Text</p>
-                    </section>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <section className="card">
-                      <img src={pic} className="image" />
-                      <p className="header">header</p>
-                      <p className="detail">Some Text</p>
-                    </section>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <section className="card">
-                      <img src={pic} className="image" />
-                      <p className="header">header</p>
-                      <p className="detail">Some Text</p>
-                    </section>
-                  </Grid.Column>
-                  <Grid.Column width={3}>
-                    <section className="card">
-                      <img src={pic} className="image" />
-                      <p className="header">header</p>
-                      <p className="detail">Some Text</p>
-                    </section>
-                  </Grid.Column>
-                </Grid.Row>
-              </Grid>
+            <div className="my_projects" id="projects">
+              <h1 className="header_title">My Projects</h1>
+              <CFE />
             </div>
 
             {/* morse code page */}
-            <div className="interactive">
-              <h1 className="header_title"> Morse translator</h1>
+            <div className="interactive" id="morse">
+              <h1 className="header_title"> Morse Translator</h1>
               <div className="card">
-                {/* <h1 className="header_title">
-                  English to Morse and back translator
-                </h1> */}
                 <div className="text_area_holder">
-                  <Form size="massive">
-                    <TextArea
-                      className="text_area"
-                      id="english"
-                      placeholder="English"
-                      value={this.state.english}
-                      onChange={this.englishInput}
-                    />
-                    <TextArea
-                      className="text_area"
-                      id="morse"
-                      placeholder="Morse"
-                      value={this.state.morse}
-                      onChange={this.morseInput}
-                    />
+                  <Form size="massive" unstackable>
+                    <Form.Group widths="equal">
+                      <textarea
+                        className="text_area"
+                        id="english"
+                        placeholder="English"
+                        value={this.state.english}
+                        onChange={this.englishInput}
+                      />
+                      <textarea
+                        className="text_area"
+                        id="morse"
+                        placeholder="Morse"
+                        value={this.state.morse}
+                        onChange={this.morseInput}
+                      />
+                    </Form.Group>
                   </Form>
                 </div>
+                <h1 className="morse_helper_header">Morse Code Alphabet</h1>
+                <p className="morse_helper_text">
+                  A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.", G "--.",
+                  H "....", I "..", J ".---", K "-.-", L ".-..", M "--", N "-.",
+                  O "---", P ".--.", Q "--.-", R ".-.", S "...", T "-", U "..-",
+                  V "...-", W ".--", X "-..-", Y "-.--", Z "--..",
+                </p>
               </div>
             </div>
 
-            {/* about me page */}
-            <div className="contact_me">
-              <div className="card">
-                <h1 className="header_title">About Me</h1>
-                <p>if you have any queestions please feel free to email me</p>
-
-                <CFE />
-              </div>
+            <div className="about_me" id="about">
+              <h1 className="header_title">About Me</h1>
+              <p>if you have any queestions please feel free to email me</p>
+              <CFE />
             </div>
 
             {/* footer */}

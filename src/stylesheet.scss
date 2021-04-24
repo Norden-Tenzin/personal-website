@@ -3,15 +3,15 @@ $primary-color: rgb(255, 0, 0);
 $secondary-color: rgb(255, 173, 173);
 
 .landing {
-  height: 60vh;
+  height: 57vh;
   .icon {
-    height: 40px;
-    width: 40px;
+    height: auto;
+    width: clamp(2em, 3.5vw, 4vw);
   }
   .introduction {
     margin-top: 35vh;
     margin-left: 40px;
-    
+
     // red contact me button not used
     // .button_red {
     //   display: inline-block;
@@ -33,89 +33,143 @@ $secondary-color: rgb(255, 173, 173);
     //   // }
     // }
 
-    .paragraph{
+    .paragraph {
       width: 75%;
       font-size: 1.7em;
-      font-size: clamp(1em, 4vw, 2em);
+      font-size: clamp(1em, 3vw, 2em);
     }
   }
 }
+
 .my_projects {
-  height: 97vh;
+  height: 93vh;
   background-color: #b3f542;
+  position: relative;
   & .header_title {
-    font-size: 8em;
-    padding-top: 80px;
-    margin-left: 10vw;
+    font-size: clamp(5em, 6vw, 8em);
+    padding-top: 60px;
+    padding-left: 30px;
   }
 }
 
 .interactive {
-  height: 97vh;
+  height: 93vh;
   background-color: #fcba03;
   position: relative;
   & .card {
-    margin: 0;
-    position: absolute;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 12px;
-    padding: 25px;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    height: 85vh;
-    width: 92vw;
-    // margin: 20px;
+    padding: 5px;
+
+    height: 65vh;
+    width: 95vw;
     background-color: #ffffff;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-  }
-  & .header_title {
-    font-size: 4em;
-    font-weight: bold;
-    padding: 0;
-    // padding-top: 1vh;
-    margin: 0;
     text-align: center;
   }
-  & .text_area_holder {
-    margin-top: 2vh;
+  & .header_title {
+    font-size: clamp(5em, 6vw, 8em);
+    font-weight: bold;
+    padding: 0;
+    padding-top: 60px;
+    margin-left: 30px;
   }
-  & .text_area {
-    min-height: 35vh;
-    max-height: 35vh;
+  & .text_area_holder {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 93vw;
+    & .text_area {
+      margin: 5px;
+      border-radius: 12px;
+      resize: none;
+      &:active{
+        background-color: #b3f542;
+        border-radius: 12px;
+      }
+      &:hover{
+        background-color: #b3f542;
+        border-radius: 12px;
+      }
+      &:focus{
+        border-radius: 12px;
+        background-color: #b3f542;
+      } 
+    }
+  }
+  & .morse_helper_header{
+    font-size: clamp(2em, 6vw, 3em);
+  }
+  & .morse_helper_text{
+    font-size: clamp(1em, 6vw, 2em);
   }
 }
 
 // TODO about me not contact me
-.contact_me {
+.about_me {
   height: 97vh;
   background-color: #b3f542;
   position: relative;
-  & .card {
-    margin: 0;
-    position: absolute;
-    border-radius: 12px;
-    padding: 25px;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-    height: 85vh;
-    width: 92vw;
-    // margin: 20px;
-    background-color: lightblue;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-  }
   & .header_title {
-    font-size: 4em;
+    font-size: clamp(5em, 6vw, 8em);
     font-weight: bold;
     padding: 0;
-    // padding-top: 1vh;
-    margin: 0;
-    text-align: center;
+    padding-top: 60px;
+    margin-left: 30px;
   }
+}
+
+.swiper_card {
+  margin-top: 250px;
+  margin-bottom: 500px;
+  .card {
+    margin-top: 100px;
+    padding: 5px;
+    height: 45vh;
+    width: 330px;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    & .image {
+      margin: 0px;
+      padding: 0px;
+      height: 30vh;
+      width: 330px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+    & .header {
+      margin-left: 10px;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    & .detail {
+      margin-left: 10px;
+      // font-size: 1em;
+    }
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  padding: 0;
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
 }
 
 .end {
@@ -151,7 +205,6 @@ $secondary-color: rgb(255, 173, 173);
     text-align: center;
   }
 }
-
 .header_holder {
   position: absolute;
   left: 0;
@@ -159,8 +212,6 @@ $secondary-color: rgb(255, 173, 173);
   margin-left: 30px;
   &--responsive {
     @extend .header_holder;
-    margin-left: 44px;
-    margin-top: 14px;
   }
 }
 .header_logo {
@@ -183,179 +234,10 @@ $secondary-color: rgb(255, 173, 173);
   margin-top: 10px;
   margin-bottom: 20px;
   background-color: #ffffff;
-}
-
-.card {
-  // display: inline-block;
-  height: 55vh;
-  width: 18vw;
-  border-radius: 12px;
-  margin-top: 20px;
-  background-color: #ffffff;
-  & .image {
-    padding: 0.5vh;
-    height: 30vh;
-    width: 18vw;
-    border-radius: 12px;
-    object-fit: cover;
-  }
-  & .header {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-size: 3em;
-  }
-  & .detail {
-    margin-left: 10px;
-    font-size: 1em;
+  .links {
+    font-size: clamp(0.55em, 2vw, 2em);
+    white-space: nowrap;
+    text-align: center;
+    // border: 3px solid green;
   }
 }
-
-.swiper-container {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-.swiper-slide {
-  padding: 0;
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
-}
-// %transition_all_03s {
-//   transition:all .3s ease;
-// }
-// %backface_visibility_hidden{
-//   backface-visibility:hidden;
-//   -webkit-backface-visibility:hidden;
-// }
-
-// *, *:before, *:after {
-//   box-sizing: border-box;
-//   margin: 0;
-//   padding: 0;
-// }
-
-// .swiper-container {
-//   width: 100%;
-//   height: 28vw;
-//   transition:opacity .6s ease;
-//   &.swiper-container-coverflow{
-//     padding-top:2%;
-//   }
-//   &.loading{
-//     opacity:0;
-//     visibility:hidden;
-//   }
-//   &:hover{
-//     .swiper-button-prev,
-//     .swiper-button-next{
-//       transform:translateX(0);
-//       opacity:1;
-//       visibility:visible;
-//     }
-//   }
-// }
-// .swiper-wrapper{
-
-// }
-// .swiper-slide{
-//   background-position:center;
-//   width: 400px;
-//   height: 400px;
-//   margin: 0px;
-//   .swiper-slide-next{
-//   }
-//   .slide-inner{
-
-//   }
-//   .entity-img{
-//     display:none;
-//   }
-//   .content{
-//     position:absolute;
-//     top:40%;
-//     left:0;
-//     width:40px;
-//     padding-left:5%;
-//     color:#fff;
-//     .title{
-//       font-size:2.6em;
-//       font-weight:bold;
-//       margin-bottom:30px;
-//     }
-//     .caption{
-//       display:block;
-//       font-size:13px;
-//       line-height:1.4;
-//     }
-//   }
-// }
-// [class^="swiper-button-"]{
-//   width:44px;
-//   opacity:0;
-//   visibility:hidden;
-//   @extend %transition_all_03s;
-// }
-// .swiper-button-prev{
-//   transform:translateX(50px);
-// }
-// .swiper-button-next{
-//   transform:translateX(-50px);
-// }
-// .swiper-container-horizontal{
-//   >.swiper-pagination-bullets{
-//     .swiper-pagination-bullet{
-//       margin:0 9px;
-//       position:relative;
-//       width:12px;
-//       height:12px;
-//       background-color:#fff;
-//       opacity:.4;
-//       @extend %transition_all_03s;
-//       &::before{
-//         content:'';
-//         position:absolute;
-//         top:50%;
-//         left:50%;
-//         width:18px;
-//         height:18px;
-//         transform:translate(-50%, -50%);
-//         border:0px solid #fff;
-//         border-radius:50%;
-//         @extend %transition_all_03s;
-//       }
-//       &:hover,
-//       &.swiper-pagination-bullet-active{
-//         opacity:1;
-//       }
-//       &.swiper-pagination-bullet-active{
-//         &::before{
-//           border-width:1px;
-//         }
-//       }
-//     }
-//   }
-// }
-
-// // Mediaqueries
-// @media(max-width:1180px){
-//   .swiper-slide{
-//     .content{
-//       .title{
-//         font-size:25px;
-//       }
-//       .caption{
-//         font-size:12px;
-//       }
-//     }
-//   }
-// }
-// @media(max-width:1023px){
-//   .swiper-container {
-//     height:40vw;
-//     &.swiper-container-coverflow{
-//       padding-top:0;
-//     }
-//   }
-// }
