@@ -17,7 +17,7 @@ import {
   Form,
   TextArea,
   GridColumn,
-  Label
+  Label,
 } from "semantic-ui-react";
 import _ from "lodash";
 //my import
@@ -28,7 +28,7 @@ import Scroll from "./Scroll";
 // import Github from "./svg";
 import pic from "./assets/image.jpg";
 
-import pdf from "./files/sample.pdf";
+import pdf from "./files/Norden-Tenzin-Resume.pdf";
 import resumeIcon from "./assets/resume.svg";
 import githubIcon from "./assets/github.svg";
 import instagramIcon from "./assets/instagram.svg";
@@ -199,14 +199,13 @@ export default class LandingPage extends React.Component {
             <p className="paragraph">
               Hi!!,
               <br />
-              I'm Tenzin Norden, a Computer Science student at Rutgers
-              University currently in my senior year. planning to graduate in
-              2021. Before coming to Rutgers I got my Associate of Science
-              majoring in CS from Middlesex County College. In my spare time I
-              like to work on web and mobile app development projects. Other
-              than that i enjoy making digital art, playing Video games and
-              cooking. <br />
-              Currently residing in New Brunswick, NJ.
+              I'm Tenzin Norden, a Computer Science graduate from Rutgers
+              University in May 2021. Before coming to Rutgers I got my
+              Associate of Science majoring in CS from Middlesex County College.
+              In my spare time I like to work on web and mobile app development
+              projects. Other than that i enjoy making digital art and cooking.
+              <br />
+              Currently residing in Edison, NJ.
             </p>
 
             <Grid>
@@ -227,9 +226,8 @@ export default class LandingPage extends React.Component {
                   </a>
                 </GridColumn>
                 <GridColumn width="1">
-                  
                   <a href={pdf}>
-                      <img src={resumeIcon} className="icon" />
+                    <img src={resumeIcon} className="icon" />
                   </a>
                 </GridColumn>
 

@@ -3,6 +3,7 @@ $primary-color: rgb(255, 0, 0);
 $secondary-color: rgb(255, 173, 173);
 
 .landing {
+  // background-image: url("./assets/background.jpg");
   height: 57vh;
   .icon {
     height: auto;
@@ -59,7 +60,7 @@ $secondary-color: rgb(255, 173, 173);
 
 .interactive {
   height: 93vh;
-  background-color: #ffe1a8;
+  background-color: #ffffff;
   position: relative;
   & .card {
     display: block;
@@ -70,8 +71,8 @@ $secondary-color: rgb(255, 173, 173);
 
     height: 65vh;
     width: 95vw;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fffea8;
+    box-shadow: 10px 10px  10px rgba(0, 0, 0, 0.2);
     transition: 0.3s;
     text-align: center;
   }
