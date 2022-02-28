@@ -2,7 +2,7 @@ import React, { createRef, Fragment } from "react";
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import SwiperCore from "swiper";
 import { Link } from "react-scroll";
-import "./stylesheet.scss";
+import "./stylesheet.css";
 
 import {
   Card,

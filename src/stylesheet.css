@@ -1,0 +1,211 @@
+.landing {
+    height: 57vh;
+}
+.landing .icon {
+    height: auto;
+    width: clamp(2em, 3.5vw, 4vw);
+}
+.landing .introduction {
+    margin-top: 35vh;
+    margin-left: 40px;
+}
+.landing .introduction .paragraph {
+    width: 75%;
+    font-size: 1.7em;
+    font-size: clamp(1em, 3vw, 2em);
+}
+.my_projects {
+    height: 93vh;
+    background-color: #fff;
+    position: relative;
+}
+.my_projects .header_title {
+    font-size: clamp(5em, 6vw, 8em);
+    padding-top: 60px;
+    padding-left: 30px;
+}
+.interactive {
+    height: 93vh;
+    background-color: #fff;
+    position: relative;
+}
+.interactive .card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    padding: 5px;
+    height: 65vh;
+    width: 95vw;
+    background-color: #fffea8;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+}
+.interactive .header_title {
+    font-size: clamp(3.6em, 6vw, 8em);
+    font-weight: bold;
+    padding: 0;
+    padding-top: 60px;
+    margin-left: 30px;
+}
+.interactive .text_area_holder {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 93vw;
+}
+.interactive .text_area_holder .text_area {
+    margin: 5px;
+    border-radius: 12px;
+    resize: none;
+    text-transform: uppercase;
+}
+.interactive .text_area_holder .text_area:active {
+    background-color: #fffea8;
+    border-radius: 12px;
+}
+.interactive .text_area_holder .text_area:hover {
+    background-color: #fffea8;
+    border-radius: 12px;
+}
+.interactive .text_area_holder .text_area:focus {
+    border-radius: 12px;
+    background-color: #fffea8;
+}
+.interactive .text_area_holder_responsive {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90vw;
+}
+.interactive .text_area_holder_responsive .text_area_responsive {
+    margin-bottom: 5px;
+    border-radius: 12px;
+    resize: none;
+    text-transform: uppercase;
+}
+.interactive .text_area_holder_responsive .text_area_responsive:active {
+    background-color: #fcba03;
+    border-radius: 12px;
+}
+.interactive .text_area_holder_responsive .text_area_responsive:hover {
+    background-color: #fcba03;
+    border-radius: 12px;
+}
+.interactive .text_area_holder_responsive .text_area_responsive:focus {
+    border-radius: 12px;
+    background-color: #fcba03;
+}
+.interactive .morse_helper_header {
+    font-size: clamp(2em, 6vw, 3em);
+}
+.interactive .morse_helper_text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20em;
+    font-size: clamp(1em, 6vw, 2em);
+}
+.swiper_card {
+    margin-top: 200px;
+    margin-bottom: 700px;
+}
+.swiper_card .card {
+    padding: 5px;
+    height: 40vh;
+    width: 330px;
+    border-radius: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    transition: top ease 0.25s;
+}
+.swiper_card .card .image {
+    margin: 0px;
+    padding: 0px;
+    height: 30vh;
+    width: 330px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+.swiper_card .card .header {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.swiper_card .card .detail {
+    margin-left: 10px;
+}
+.swiper_card .card:hover {
+    top: -10px;
+}
+.swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.swiper-slide {
+    padding: 0;
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+}
+.header_holder, .header_holder--responsive {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin-left: 30px;
+}
+.header_logo {
+    font-size: 10em;
+}
+.header_links_col {
+    font-size: 1.5em;
+    margin-top: 80px;
+}
+.header_links_col .links {
+    font-size: clamp(0.55em, 2vw, 1.25em);
+    white-space: nowrap;
+    cursor: pointer;
+}
+.header_link {
+    margin-top: 0;
+    padding-right: 21px;
+    font-size: 2em;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.header_links_sticky {
+    font-size: 2em;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: #fffea8;
+}
+.header_links_sticky .links {
+    font-size: clamp(0.49em, 2vw, 2em);
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+}
+.menu-item {
+    padding: 0 40px;
+    margin: 5px 10px;
+    user-select: none;
+    cursor: pointer;
+    border: none;
+}
+.menu-item-wrapper.active {
+    border: 1px blue solid;
+}
+.menu-item.active {
+    border: 1px green solid;
+}
+.scroll-menu-arrow {
+    padding: 20px;
+    cursor: pointer;
+}

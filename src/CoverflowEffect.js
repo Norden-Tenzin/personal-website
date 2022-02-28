@@ -5,10 +5,9 @@ import React, { useState, useEffect } from "react";
 import Swiper from "react-id-swiper";
 import pic from "./assets/image.jpg";
 import Card from "./Card";
-import firebase from "./firebase";
+import firebase from 'firebase/compat/app';
 
-import "swiper/swiper.scss";
-import "./stylesheet.scss";
+import "./stylesheet.css";
 
 const cardInfo = [
   {
