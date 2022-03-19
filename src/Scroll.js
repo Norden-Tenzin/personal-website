@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ScrollMenu from "react-horizontal-scrolling-menu";
-// import "./scroll.scss";
-import "./stylesheet.css";
+import "./css/stylesheet.css";
 
 import Card from "./Card";
 import picture from "./assets/image.jpg";

@@ -1,0 +1,234 @@
+$text-color: rgb(0, 0, 0);
+$logo-color: rgb(255, 159, 111);
+
+$primary-color: rgb(255, 0, 0);
+$secondary-color: rgb(255, 233, 223);
+$background-color: rgb(255, 240, 233);
+$background-color: rgb(255, 243, 226);
+
+$sticky-links: rgb(255, 173, 173);
+$sticky-links-background-color: rgb(255, 159, 111);
+$sticky-text-color: white;
+
+$interactive-card-color: rgb(255, 186, 151);
+$interactive-card-textholder-color: rgb(255, 248, 239);
+$interactive-card-textholder-focus-color: rgb(255, 233, 222);
+$interactive-card-textholder-active-color: white;
+$interactive-card-textholder-hover-color: rgb(255, 233, 222);
+
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@100&family=Gidugu&family=Happy+Monkey&family=Londrina+Shadow&family=Potta+One&display=swap");
+
+html {
+  background-color: $background-color;
+}
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.header_holder {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 30px;
+  &--responsive {
+    @extend .header_holder;
+  }
+}
+.header_logo {
+  font-size: 10em;
+  color: $logo-color;
+  // font-family: 'Georama', sans-serif;
+  // font-family: 'Gidugu', sans-serif;
+  // font-family: 'Happy Monkey', cursive;
+  // font-family: 'Londrina Shadow', cursive;
+  font-family: "Potta One", cursive;
+}
+.header_links_col {
+  font-size: 1.5em;
+  margin-top: 80px;
+  .links {
+    font-size: clamp(0.55em, 2vw, 1.25em);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+}
+.header_link {
+  // margin-top: 0;
+  // padding-left: 21px;
+  // padding-right: 21px;
+  font-size: 2em;
+  // font-size: clamp(0.55em, 2vw, 1.25em);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.header_links_sticky_container {
+  font-size: 2em;
+  background-color: $sticky-links-background-color;
+  display: flex;
+  height: 64px;
+  justify-content: space-evenly;
+  align-items: center;
+  // margin-top: 10px;
+  // margin-bottom: 20px;
+  .header_links_sticky_item {
+    .links {
+      color: $sticky-text-color;
+      font-size: clamp(0.49em, 2vw, 2em);
+      white-space: nowrap;
+      text-align: center;
+      cursor: pointer;
+      // border: 3px solid green;
+    }
+  }
+}
+
+.landing {
+  background-color: $background-color;
+  height: 57vh;
+  .icon_container {
+    display: flex;
+    gap: 10px;
+    .icon_link {
+      flex-shrink: 3;
+      .icon {
+        height: 40px;
+        fill: $logo-color;
+        // width: clamp(2em, 3.5vw, 4vw);
+      }
+      .link{
+        font-size: 3em;
+      }
+    }
+  }
+
+  .introduction {
+    margin-top: 35vh;
+    margin-left: 40px;
+    .paragraph {
+      width: 75%;
+      font-size: 1.7em;
+      font-weight: bold;
+      font-size: clamp(1em, 3vw, 2em);
+    }
+  }
+}
+
+.my_projects {
+  height: 93vh;
+  background-color: $background-color;
+  // position: relative;
+  overflow: auto;
+
+  & .header_title {
+    font-size: clamp(5em, 6vw, 8em);
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+  .container {
+    padding-left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .item{
+      .link_header{
+        color: $logo-color;
+        font-family: "Potta One", cursive;
+        font-size: 2.5em;
+      }
+      .info{
+        width: 75%;
+        font-size: 1.5em;
+        margin-left: 10px;
+      }
+    }
+    .link {
+      cursor: pointer;
+      font-size: 1.5em;
+    }
+  }
+}
+
+.interactive {
+  height: 93vh;
+  background-color: $background-color;
+  display: flex;
+  flex-direction: column;
+  & .card {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+    flex-grow: 1;
+    background-color: $interactive-card-color;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    text-align: center;
+  }
+  & .header_title {
+    font-size: clamp(5em, 6vw, 8em);
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+  & .text_area_holder {
+    display: flex;
+    align-items: stretch;
+    height: 20vw;
+    // height: clamp(5vw, 5vw, 40vw);
+    & .text_area {
+      margin: 5px;
+      border-radius: 12px;
+      resize: none;
+      flex-grow: 2;
+      padding: 10px;
+      font-size: x-large;
+      text-transform: uppercase;
+      background-color: $interactive-card-textholder-color;
+      &:hover {
+        background-color: $interactive-card-textholder-hover-color;
+        border-radius: 12px;
+      }
+      &:focus {
+        outline: none;
+        border-radius: 12px;
+        background-color: $interactive-card-textholder-focus-color;
+      }
+    }
+  }
+  & .text_area_holder_responsive {
+    margin: 5px;
+    border-radius: 12px;
+    resize: none;
+    flex-grow: 2;
+    padding: 10px;
+    font-size: x-large;
+    text-transform: uppercase;
+    background-color: $interactive-card-textholder-color;
+    &:hover {
+      background-color: $interactive-card-textholder-hover-color;
+      border-radius: 12px;
+    }
+    &:focus {
+      border-radius: 12px;
+      background-color: $interactive-card-textholder-focus-color;
+    }
+  }
+  & .morse_helper_header {
+    font-size: clamp(2em, 6vw, 3em);
+  }
+  & .morse_helper_text {
+    // margin-left: auto;
+    // margin-right: auto;
+    // width: 20em;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+  }
+}

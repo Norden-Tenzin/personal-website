@@ -1,41 +1,24 @@
-import React, { createRef, Fragment } from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import SwiperCore from "swiper";
+import React, { createRef } from "react";
 import { Link } from "react-scroll";
-import "./stylesheet.css";
-
-import {
-  Card,
-  Icon,
-  Image,
-  Grid,
-  Button,
-  Sticky,
-  Menu,
-  Input,
-  Segment,
-  Form,
-  TextArea,
-  GridColumn,
-  Label,
-} from "semantic-ui-react";
+import "./css/stylesheet.css";
+import { Grid, Sticky, Form, GridColumn, Divider } from "semantic-ui-react";
 import _ from "lodash";
-//my import
 import * as morse from "./morse";
-import CFE from "./CoverflowEffect";
 
-import Scroll from "./Scroll";
 // import Github from "./svg";
-import pic from "./assets/image.jpg";
-
+// import pic from "./assets/image.jpg";
 import pdf from "./files/Norden-Tenzin-Resume.pdf";
 import resumeIcon from "./assets/resume.svg";
 import githubIcon from "./assets/github.svg";
-import instagramIcon from "./assets/instagram.svg";
+import instagramIcon from "./assets/instagram_xray.svg";
 import emailIcon from "./assets/email.svg";
-import linkedinIcon from "./assets/linkedin.svg";
+import linkedinIcon from "./assets/linkedin_xray.svg";
 import Route from "./Route";
 import Project from "./Project";
+
+// intro test
+// Computers have always
+// facinated me, it felt like magic. So it was a no brainer as to what I wanted to study in.
 
 export default class LandingPage extends React.Component {
   constructor(props) {
@@ -64,11 +47,7 @@ export default class LandingPage extends React.Component {
   englishInput = (e) => {
     this.setState({ english: "" });
     this.setState({ morse: "" });
-
     let x = morse.eToM(e.target.value);
-    console.log(x);
-    // console.log(this.state.morse);
-
     this.setState({ english: e.target.value });
     this.setState({ morse: x });
   };
@@ -76,11 +55,7 @@ export default class LandingPage extends React.Component {
   morseInput = (e) => {
     this.setState({ english: "" });
     this.setState({ morse: "" });
-
     let x = morse.mToE(e.target.value);
-    console.log(x);
-    // console.log(this.state.morse);
-
     this.setState({ english: x });
     this.setState({ morse: e.target.value });
   };
@@ -95,11 +70,20 @@ export default class LandingPage extends React.Component {
             <div className="header_holder">
               <Grid container columns={2}>
                 <Grid.Column width={3}>
-                  <h1 className="header_logo">tn.</h1>
+                  <Link
+                    activeClass="active"
+                    to="home"
+                    spy={true}
+                    smooth={true}
+                    offset={-360}
+                    duration={500}
+                  >
+                    <h1 className="header_logo">tn.</h1>
+                  </Link>
                 </Grid.Column>
                 <Grid.Column width={3}>
                   <div className="header_links_col">
-                    <Link
+                    {/* <Link
                       activeClass="active"
                       to="home"
                       spy={true}
@@ -108,7 +92,7 @@ export default class LandingPage extends React.Component {
                       duration={500}
                     >
                       <h1 className="links">Home</h1>
-                    </Link>
+                    </Link> */}
                     <Link
                       activeClass="active"
                       to="projects"
@@ -117,7 +101,7 @@ export default class LandingPage extends React.Component {
                       offset={-70}
                       duration={500}
                     >
-                      {/* <h1 className="links">Projects</h1>
+                      <h1 className="links">Projects</h1>
                     </Link>
                     <Link
                       activeClass="active"
@@ -126,7 +110,7 @@ export default class LandingPage extends React.Component {
                       smooth={true}
                       offset={-70}
                       duration={500}
-                    > */}
+                    >
                       <h1 className="links">Demo</h1>
                     </Link>
                     {/* <Link
@@ -168,7 +152,7 @@ export default class LandingPage extends React.Component {
                     offset={-70}
                     duration={500}
                   >
-                    {/* <h1 className="header_link">Projects</h1>
+                    <h1 className="header_link">Projects</h1>
                   </Link>
                   <Link
                     activeClass="active"
@@ -177,7 +161,7 @@ export default class LandingPage extends React.Component {
                     smooth={true}
                     offset={-70}
                     duration={500}
-                  > */}
+                  >
                     <h1 className="header_link">Demo</h1>
                   </Link>
                   {/* <Link
@@ -197,218 +181,160 @@ export default class LandingPage extends React.Component {
 
           <div className="introduction">
             <p className="paragraph">
-              Hi!!,
+              Hi!! I'm Tenzin Norden,
               <br />
-              I'm Tenzin Norden, a Computer Science graduate from Rutgers
-              University in May 2021. Before coming to Rutgers I got my
-              Associate of Science majoring in CS from Middlesex County College.
-              In my spare time I like to work on web and mobile app development
-              projects. Other than that i enjoy making digital art and cooking.
+              I'm a programmer, artist, gamer and an avid cook. A Rutgers NB
+              Alumni with a Bachelors of Science in Computer Science. Interested
+              in all facets of programming.
               <br />
-              Currently residing in Edison, NJ.
+              Currently residing in Hoboken, NJ.
             </p>
-
-            <Grid>
-              <Grid.Row padding>
-                <GridColumn width="1">
-                  <a href="https://github.com/Norden-Tenzin">
-                    <img src={githubIcon} className="icon" />
-                  </a>
-                </GridColumn>
-                <GridColumn width="1">
-                  <a href="https://www.linkedin.com/in/tenzin-norden">
-                    <img src={linkedinIcon} className="icon" />
-                  </a>
-                </GridColumn>
-                <GridColumn width="1">
-                  <a href="https://www.instagram.com/nordten/">
-                    <img src={instagramIcon} className="icon" />
-                  </a>
-                </GridColumn>
-                <GridColumn width="1">
-                  <a href={pdf}>
-                    <img src={resumeIcon} className="icon" />
-                  </a>
-                </GridColumn>
-
-                {/* <GridColumn width="1">
-                  <a href="mailto:tenzinnorden29@gmail.com">
-                    <img src={emailIcon} className="icon" />
-                  </a>
-                </GridColumn> */}
-                {/* <GridColumn>
-                    <p className="email">tenzinnorden29@gmail.com</p>
-                </GridColumn> */}
-              </Grid.Row>
-            </Grid>
+            <div className="icon_container">
+              <a href="https://github.com/Norden-Tenzin" className="icon_link">
+                <img src={githubIcon} className="icon" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tenzin-norden"
+                className="icon_link"
+              >
+                <img src={linkedinIcon} className="icon" />
+              </a>
+              <a
+                href="https://www.instagram.com/nordten/"
+                className="icon_link"
+              >
+                <img src={instagramIcon} className="icon" />
+              </a>
+              {/* <a href={pdf} className="icon_link">
+                <div className="link">Click Here for Resume</div>
+              </a> */}
+            </div>
           </div>
         </div>
 
         {/* sticky header bar */}
         <div ref={this.contextRef}>
           <Sticky context={this.contextRef}>
-            <div className="header_links_sticky" attached="top">
-              <Grid>
-                <Grid.Row centered>
-                  <Grid.Column width={3}>
-                    <Link
-                      activeClass="active"
-                      to="home"
-                      spy={true}
-                      smooth={true}
-                      offset={-360}
-                      duration={500}
-                    >
-                      <h1 className="links">Home</h1>
-                    </Link>
-                  </Grid.Column>
-                  {/* <Grid.Column width={3}>
-                    <Link
-                      activeClass="active"
-                      to="projects"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      <h1 className="links">Projects</h1>
-                    </Link>
-                  </Grid.Column> */}
-                  <Grid.Column width={3}>
-                    <Link
-                      activeClass="active"
-                      to="morse"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      <h1 className="links">Demo</h1>
-                    </Link>
-                  </Grid.Column>
-                  {/* <Grid.Column width={3}>
-                    <Link
-                      activeClass="active"
-                      to="about"
-                      spy={true}
-                      smooth={true}
-                      offset={-70}
-                      duration={500}
-                    >
-                      <h1 className="links">Contact Me</h1>
-                    </Link>
-                  </Grid.Column> */}
-                </Grid.Row>
-              </Grid>
+            <div className="header_links_sticky_container" attached="top">
+              <div className="header_links_sticky_item">
+                <Link
+                  activeClass="active"
+                  to="home"
+                  spy={true}
+                  smooth={true}
+                  offset={-300}
+                  duration={400}
+                >
+                  <h1 className="links">Home</h1>
+                </Link>
+              </div>
+              <div className="header_links_sticky_item">
+                <Link
+                  activeClass="active"
+                  to="projects"
+                  spy={true}
+                  smooth={true}
+                  offset={-55}
+                  duration={400}
+                >
+                  <h1 className="links">Projects</h1>
+                </Link>
+              </div>
+              <div className="header_links_sticky_item">
+                <Link
+                  activeClass="active"
+                  to="morse"
+                  spy={true}
+                  smooth={true}
+                  offset={-55}
+                  duration={400}
+                >
+                  <h1 className="links">Demo</h1>
+                </Link>
+              </div>
             </div>
           </Sticky>
 
           {/* project showcase page TODO*/}
-          {/* <div>
+          <div>
             <div className="my_projects" id="projects">
               <h1 className="header_title">My Projects</h1>
-              <Scroll />
+              <div className="container">
+                <div className="item">
+                  <a
+                    className="link_header"
+                    href="https://github.com/Norden-Tenzin/440ArtificialIntelligence"
+                  >
+                    AI Projects
+                  </a>
+                  <p className="info">
+                    Used python to create the algorithm for the AI. Worked on
+                    multiple projects such as Colorizer, Maze Solver,
+                    Minesweeper Solver and Helper, and more. These were all
+                    School Projects for Intro to AI.
+                  </p>
+                </div>
+                <div className="item">
+                  <a
+                    className="link_header"
+                    href="https://github.com/Norden-Tenzin/multiplayer-chess-python"
+                  >
+                    Python Chess
+                  </a>
+                  <p className="info">
+                    Playable multiplayer game of chess coded in python using the
+                    pygame framework for the visuals like sprites and GUI. For
+                    networking I used the Twisted framework.
+                  </p>
+                </div>
+                <div className="item">
+                  <a
+                    className="link_header"
+                    href="https://github.com/Norden-Tenzin/personal-website"
+                  >
+                    Personal Website
+                  </a>
+                  <p className="info">
+                    used React to build this website.
+                  </p>
+                </div>
+              </div>
             </div>
-          </div> */}
+          </div>
 
           {/* morse code page */}
           <div>
             <div className="interactive" id="morse">
               <h1 className="header_title">Morse Translator</h1>
               <div className="card">
-                {window.innerWidth > 770 ? (
-                  <div className="text_area_holder">
-                    <Form size="massive" unstackable>
-                      <Form.Group widths="equal">
-                        <textarea
-                          className="text_area"
-                          id="english"
-                          placeholder="English"
-                          value={this.state.english}
-                          onChange={this.englishInput}
-                        />
-                        <textarea
-                          className="text_area"
-                          id="morse"
-                          placeholder="Morse"
-                          value={this.state.morse}
-                          onChange={this.morseInput}
-                        />
-                      </Form.Group>
-                    </Form>
-                  </div>
-                ) : (
-                  <div className="text_area_holder_responsive">
-                    <Form size="massive" unstackable>
-                      <Form.Group widths="equal">
-                        <textarea
-                          className="text_area_responsive"
-                          id="english"
-                          placeholder="English"
-                          value={this.state.english}
-                          onChange={this.englishInput}
-                        />
-                        <textarea
-                          className="text_area_responsive"
-                          id="morse"
-                          placeholder="Morse"
-                          value={this.state.morse}
-                          onChange={this.morseInput}
-                        />
-                      </Form.Group>
-                    </Form>
-                  </div>
-                )}
-                {window.innerWidth > 770 ? (
-                  <h1 className="morse_helper_header">
-                    (Valid) Morse Code Characters
-                  </h1>
-                ) : null}
-                {window.innerWidth > 770 ? (
-                  <p className="morse_helper_text">
-                    A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.", G
-                    "--.", H "....", I "..", J ".---", K "-.-", L ".-..", M
-                    "--", N "-.", O "---", P ".--.", Q "--.-", R ".-.", S "...",
-                    T "-", U "..-", V "...-", W ".--", X "-..-", Y "-.--", Z
-                    "--..",
-                  </p>
-                ) : null}
+                {/* {window.innerWidth > 770 ? ( */}
+                <div className="text_area_holder">
+                  <textarea
+                    className="text_area"
+                    id="english"
+                    placeholder="English"
+                    value={this.state.english}
+                    onChange={this.englishInput}
+                  />
+                  <textarea
+                    className="text_area"
+                    id="morse"
+                    placeholder="Morse"
+                    value={this.state.morse}
+                    onChange={this.morseInput}
+                  />
+                </div>
+                <h1 className="morse_helper_header">
+                  (Valid) Morse Code Characters
+                </h1>
+                <p className="morse_helper_text">
+                  A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.", G "--.",
+                  H "....", I "..", J ".---", K "-.-", L ".-..", M "--", N "-.",
+                  O "---", P ".--.", Q "--.-", R ".-.", S "...", T "-", U "..-",
+                  V "...-", W ".--", X "-..-", Y "-.--", Z "--..",
+                </p>
               </div>
             </div>
-
-            {/* About me page */}
-            {/* <div className="about_me" id="about">
-              <h1 className="header_title">About Me</h1>
-              <CFE />
-            </div> */}
-
-            {/* footer */}
-
-            {/* <div className="end">
-              <Grid centered>
-                <Grid.Row>
-                  <GridColumn>
-                    <a href="https://github.com/Norden-Tenzin">
-                      <img src={githubIcon} className="icon" />
-                    </a>
-                  </GridColumn>
-                  <GridColumn>
-                    <a href="www.linkedin.com/in/tenzin-norden">
-                      <img src={linkedinIcon} className="icon" />
-                    </a>
-                  </GridColumn>
-                  <GridColumn>
-                    <a href="https://www.instagram.com/nordten/">
-                      <img src={instagramIcon} className="icon" />
-                    </a>
-                  </GridColumn>
-                 
-                </Grid.Row>
-                <Grid.Row>
-                  <h1 className="header_title">Thanks for visiting!! </h1>
-                </Grid.Row>
-              </Grid>
-            </div> */}
           </div>
         </div>
       </div>

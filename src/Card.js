@@ -1,6 +1,6 @@
 import React from "react";
 // import pic from "./assets/image.jpg";
-import "./stylesheet.scss";
+import "./css/stylesheet.scss";
 
 class Card extends React.Component {
   constructor(props) {

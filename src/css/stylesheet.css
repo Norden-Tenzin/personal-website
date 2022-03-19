@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Georama:wght@100&family=Gidugu&family=Happy+Monkey&family=Londrina+Shadow&family=Potta+One&display=swap");
+html {
+  background-color: #fff3e2;
+}
+
+.button {
+  background-color: #4caf50;
+  /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.header_holder, .header_holder--responsive {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin-left: 30px;
+}
+
+.header_logo {
+  font-size: 10em;
+  color: #ff9f6f;
+  font-family: "Potta One", cursive;
+}
+
+.header_links_col {
+  font-size: 1.5em;
+  margin-top: 80px;
+}
+
+.header_links_col .links {
+  font-size: clamp(0.55em, 2vw, 1.25em);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.header_link {
+  font-size: 2em;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.header_links_sticky_container {
+  font-size: 2em;
+  background-color: #ff9f6f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 64px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header_links_sticky_container .header_links_sticky_item .links {
+  color: white;
+  font-size: clamp(0.49em, 2vw, 2em);
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+}
+
+.landing {
+  background-color: #fff3e2;
+  height: 57vh;
+}
+
+.landing .icon_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.landing .icon_container .icon_link {
+  -ms-flex-negative: 3;
+      flex-shrink: 3;
+}
+
+.landing .icon_container .icon_link .icon {
+  height: 40px;
+  fill: #ff9f6f;
+}
+
+.landing .icon_container .icon_link .link {
+  font-size: 3em;
+}
+
+.landing .introduction {
+  margin-top: 35vh;
+  margin-left: 40px;
+}
+
+.landing .introduction .paragraph {
+  width: 75%;
+  font-size: 1.7em;
+  font-weight: bold;
+  font-size: clamp(1em, 3vw, 2em);
+}
+
+.my_projects {
+  height: 93vh;
+  background-color: #fff3e2;
+  overflow: auto;
+}
+
+.my_projects .header_title {
+  font-size: clamp(5em, 6vw, 8em);
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.my_projects .container {
+  padding-left: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.my_projects .container .item .link_header {
+  color: #ff9f6f;
+  font-family: "Potta One", cursive;
+  font-size: 2.5em;
+}
+
+.my_projects .container .item .info {
+  width: 75%;
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+.my_projects .container .link {
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+.interactive {
+  height: 93vh;
+  background-color: #fff3e2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.interactive .card {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #ffba97;
+  -webkit-box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+          box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  text-align: center;
+}
+
+.interactive .header_title {
+  font-size: clamp(5em, 6vw, 8em);
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.interactive .text_area_holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 20vw;
+}
+
+.interactive .text_area_holder .text_area {
+  margin: 5px;
+  border-radius: 12px;
+  resize: none;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding: 10px;
+  font-size: x-large;
+  text-transform: uppercase;
+  background-color: #fff8ef;
+}
+
+.interactive .text_area_holder .text_area:hover {
+  background-color: #ffe9de;
+  border-radius: 12px;
+}
+
+.interactive .text_area_holder .text_area:focus {
+  outline: none;
+  border-radius: 12px;
+  background-color: #ffe9de;
+}
+
+.interactive .text_area_holder_responsive {
+  margin: 5px;
+  border-radius: 12px;
+  resize: none;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  padding: 10px;
+  font-size: x-large;
+  text-transform: uppercase;
+  background-color: #fff8ef;
+}
+
+.interactive .text_area_holder_responsive:hover {
+  background-color: #ffe9de;
+  border-radius: 12px;
+}
+
+.interactive .text_area_holder_responsive:focus {
+  border-radius: 12px;
+  background-color: #ffe9de;
+}
+
+.interactive .morse_helper_header {
+  font-size: clamp(2em, 6vw, 3em);
+}
+
+.interactive .morse_helper_text {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+/*# sourceMappingURL=stylesheet.css.map */
