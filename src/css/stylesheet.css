@@ -70,32 +70,59 @@ html {
 
 .landing {
   background-color: #fff3e2;
-  height: 57vh;
-}
-
-.landing .icon_container {
+  height: 91.5vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.landing .icon_container .icon_link {
-  -ms-flex-negative: 3;
-      flex-shrink: 3;
+.landing .header_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  height: 200px;
 }
 
-.landing .icon_container .icon_link .icon {
-  height: 40px;
-  fill: #ff9f6f;
+.landing .header_container .header_logo {
+  font-size: 10em;
+  color: #ff9f6f;
+  margin-top: 40px;
+  font-family: "Potta One", cursive;
 }
 
-.landing .icon_container .icon_link .link {
-  font-size: 3em;
+.landing .header_container .header_links_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.landing .header_container .header_links_container .header_links {
+  font-size: 2em;
 }
 
 .landing .introduction {
-  margin-top: 35vh;
+  margin-top: 15vh;
   margin-left: 40px;
 }
 
@@ -104,6 +131,27 @@ html {
   font-size: 1.7em;
   font-weight: bold;
   font-size: clamp(1em, 3vw, 2em);
+}
+
+.landing .introduction .icon_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+}
+
+.landing .introduction .icon_container .icon_link {
+  -ms-flex-negative: 3;
+      flex-shrink: 3;
+}
+
+.landing .introduction .icon_container .icon_link .icon {
+  height: 40px;
+  fill: #ff9f6f;
+}
+
+.landing .introduction .icon_container .icon_link .link {
+  font-size: 3em;
 }
 
 .my_projects {

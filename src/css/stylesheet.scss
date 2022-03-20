@@ -90,31 +90,58 @@ html {
 
 .landing {
   background-color: $background-color;
-  height: 57vh;
-  .icon_container {
+  height: 91.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  .header_container {
     display: flex;
-    gap: 10px;
-    .icon_link {
-      flex-shrink: 3;
-      .icon {
-        height: 40px;
-        fill: $logo-color;
-        // width: clamp(2em, 3.5vw, 4vw);
-      }
-      .link{
-        font-size: 3em;
+    flex-direction: row;
+    align-items: stretch;
+    height: 200px;
+    .header_logo {
+      font-size: 10em;
+      color: $logo-color;
+      margin-top: 40px;
+      // font-family: 'Georama', sans-serif;
+      // font-family: 'Gidugu', sans-serif;
+      // font-family: 'Happy Monkey', cursive;
+      // font-family: 'Londrina Shadow', cursive;
+      font-family: "Potta One", cursive;
+    }
+    .header_links_container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      .header_links {
+        font-size: 2em;
       }
     }
   }
 
   .introduction {
-    margin-top: 35vh;
+    margin-top: 15vh;
     margin-left: 40px;
     .paragraph {
       width: 75%;
       font-size: 1.7em;
       font-weight: bold;
       font-size: clamp(1em, 3vw, 2em);
+    }
+    .icon_container {
+      display: flex;
+      gap: 10px;
+      .icon_link {
+        flex-shrink: 3;
+        .icon {
+          height: 40px;
+          fill: $logo-color;
+          // width: clamp(2em, 3.5vw, 4vw);
+        }
+        .link {
+          font-size: 3em;
+        }
+      }
     }
   }
 }
@@ -135,13 +162,13 @@ html {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    .item{
-      .link_header{
+    .item {
+      .link_header {
         color: $logo-color;
         font-family: "Potta One", cursive;
         font-size: 2.5em;
       }
-      .info{
+      .info {
         width: 75%;
         font-size: 1.5em;
         margin-left: 10px;
