@@ -112,8 +112,6 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
   to { transform: translateX(-100%); }
 }
 
-
-
 .landing{
   display: flex;
   flex-direction: column;
@@ -122,9 +120,8 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
   
   .intro {
     background-color: $background-color;
-    height: 93.5vh;
     display: grid;
-    grid-template-rows: auto 1fr auto 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto 1fr 1fr 28rem;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: 
     "roll roll roll roll roll roll roll roll roll roll"
@@ -132,10 +129,6 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
     ". . . . . . . . . ."
     ". . . main main main main main main ."
     ". . . main main main main main main ."
-    ". . . main main main main main main ."
-    ". . . main main main main main main ."
-    ". . . . . . . . . ."
-    ". . . . . . . . . ."
     ". . . . footer footer . . . .";
     
     .bar {
@@ -143,14 +136,17 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
       padding-bottom: 1rem;
       grid-area: roll;
       background-color: black;
-      font-size: 18px;
       overflow: hidden;
+      // background: repeating-linear-gradient( -45deg, #000 0px, #000 5px, #333 6px, #333 11px, #000 12px);
+
       & .bar-content {
-        display: block; /* Important to give the content a width */
+        display: block;
         color: white;
         width: 100%;
-        font-family: "Potta One";
-        transform: translateX(100%); /* Animation start out of the screen */
+        font-family: "Helvetica";
+        font-weight: 900;
+        font-size: 3em;
+        transform: translateX(100%);
         animation: move 20s linear infinite;
         white-space: nowrap; 
       }
@@ -195,6 +191,7 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
         // margin-top: 2rem;
         margin-left: 3rem;
         margin-right: 3rem;
+        padding-bottom: 1rem;
         font-size: 1.7em;
         font-size: clamp(1em, 3vw, 2em);
       }
@@ -203,7 +200,7 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
     .contact-container{ 
       margin-bottom: 2rem;
       grid-area: footer;
-      justify-content: center;
+      justify-content: flex-end;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -230,7 +227,6 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
 }
 
 .my-projects {
-  height: 93vh;
   background-color: $background-color;
   overflow: auto;
   & .header-title {
@@ -263,7 +259,6 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
 }
 
 .interactive {
-  height: 93vh;
   background-color: $background-color;
   display: flex;
   flex-direction: column;
@@ -337,3 +332,36 @@ $interactive-card-textholder-hover-color: rgb(255, 233, 222);
     font-size: clamp(1rem, 2.5vw, 1.5rem);
   }
 }
+
+.test {
+  height: 90vh;
+  background-color: $background-color;
+  // display: flex;
+  // justify-content: center;
+  // background-size: cover;
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .swiper-slide {
+      background-position: center;
+      height: 30rem;
+      width: 30rem;
+      overflow: hidden;
+      border-radius: 30px;
+      .slide-content{
+        width:100%; 
+        height:100%;
+        -drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        text-align: center;
+        object-fit: fill;
+      }
+    }
+  }
+}
+

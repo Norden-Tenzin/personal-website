@@ -94,26 +94,26 @@
 }
 .landing .intro {
   background-color: rgb(252, 242, 234);
-  height: 93.5vh;
   display: grid;
-  grid-template-rows: auto 1fr auto 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto 1fr 1fr 28rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "roll roll roll roll roll roll roll roll roll roll" "header header header header header header header header header header" ". . . . . . . . . ." ". . . main main main main main main ." ". . . main main main main main main ." ". . . main main main main main main ." ". . . main main main main main main ." ". . . . . . . . . ." ". . . . . . . . . ." ". . . . footer footer . . . .";
+  grid-template-areas: "roll roll roll roll roll roll roll roll roll roll" "header header header header header header header header header header" ". . . . . . . . . ." ". . . main main main main main main ." ". . . main main main main main main ." ". . . . footer footer . . . .";
 }
 .landing .intro .bar {
   padding-top: 1rem;
   padding-bottom: 1rem;
   grid-area: roll;
   background-color: black;
-  font-size: 18px;
   overflow: hidden;
 }
 .landing .intro .bar .bar-content {
-  display: block; /* Important to give the content a width */
+  display: block;
   color: white;
   width: 100%;
-  font-family: "Potta One";
-  transform: translateX(100%); /* Animation start out of the screen */
+  font-family: "Helvetica";
+  font-weight: 900;
+  font-size: 3em;
+  transform: translateX(100%);
   -webkit-animation: move 20s linear infinite;
           animation: move 20s linear infinite;
   white-space: nowrap;
@@ -155,13 +155,14 @@
   font-family: "Work Sans", sans-serif;
   margin-left: 3rem;
   margin-right: 3rem;
+  padding-bottom: 1rem;
   font-size: 1.7em;
   font-size: clamp(1em, 3vw, 2em);
 }
 .landing .intro .contact-container {
   margin-bottom: 2rem;
   grid-area: footer;
-  justify-content: center;
+  justify-content: flex-end;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,7 +185,6 @@
 }
 
 .my-projects {
-  height: 93vh;
   background-color: rgb(252, 242, 234);
   overflow: auto;
 }
@@ -215,7 +215,6 @@
 }
 
 .interactive {
-  height: 93vh;
   background-color: rgb(252, 242, 234);
   display: flex;
   flex-direction: column;
@@ -287,4 +286,34 @@
 }
 .interactive .morse-helper-text {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.test {
+  height: 90vh;
+  background-color: rgb(252, 242, 234);
+}
+.test .swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.test .swiper .swiper-slide {
+  background-position: center;
+  height: 30rem;
+  width: 30rem;
+  overflow: hidden;
+  border-radius: 30px;
+}
+.test .swiper .swiper-slide .slide-content {
+  width: 100%;
+  height: 100%;
+  -drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  text-align: center;
+  -o-object-fit: fill;
+     object-fit: fill;
 }/*# sourceMappingURL=stylesheet.css.map */

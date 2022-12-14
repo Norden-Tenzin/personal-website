@@ -1,9 +1,17 @@
-import React, { createRef } from "react";
+import React, { useRef, useState, createRef } from "react";
 import { Link } from "react-scroll";
-import "./css/stylesheet.css";
-import { Grid, Sticky, Form, GridColumn, Divider } from "semantic-ui-react";
+import { Sticky } from "semantic-ui-react";
 import _ from "lodash";
 import * as morse from "./morse";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Pagination } from "swiper";
+
+// Import Swiper styles
+import "./css/stylesheet.css";
+import "swiper/swiper.min.css";
+import "swiper/modules/effect-coverflow/effect-coverflow.min.css";
+import "swiper/modules/pagination/pagination.min.css";
+// import "./styles.css";
 
 // import Github from "./svg";
 // import pic from "./assets/image.jpg";
@@ -76,11 +84,7 @@ export default class LandingPage extends React.Component {
         <div className="landing">
           <div className="intro" id="home">
             <div className="bar">
-              <span className="bar-content">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s
-              </span>
+              <span className="bar-content">Black Lives Matter</span>
             </div>
             <div className="header-container">
               <div className="header-logo">tn.</div>
@@ -110,13 +114,16 @@ export default class LandingPage extends React.Component {
             <div className="para-wrapper">
               <h1 className="para-header">Hi!! I'm Tenzin Norden,</h1>
               <p className="paragraph">
-                I'm a programmer, artist, gamer and an avid cook. A 
+                I'm a programmer, artist, gamer and an avid cook. A
                 <span className="rutgers"> Rutgers </span>
                 NB Alumni with a Bachelors of Science in Computer Science.
                 Interested in all facets of programming.
                 <br />
-                Currently residing in 
-                <span style={{textDecoration: "line-through"}}> Hoboken, NJ.</span> 
+                Currently residing in
+                <span style={{ textDecoration: "line-through" }}>
+                  {" "}
+                  Hoboken, NJ.
+                </span>
                 <span> Manali, HP</span>
               </p>
             </div>
@@ -266,6 +273,96 @@ export default class LandingPage extends React.Component {
                     "--..",
                   </p>
                 </div>
+              </div>
+            </div>
+
+            {/* carousel */}
+            <div>
+              <div className="test">
+                <Swiper
+
+                  effect={"coverflow"}
+                  slidesPerView={3}
+                  coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                  }}
+                  loop={true}
+                  pagination={true}
+                  centeredSlides = {false}
+                  modules={[EffectCoverflow, Pagination]}
+                  className="swiper"
+                >
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src={require("./assets/qr-code.png")}
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src={require("./assets/background.jpg")}
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <div className="card">
+                      {/* {window.innerWidth > 770 ? ( */}
+                      <div className="text-area-holder">
+                        <textarea
+                          className="text-area"
+                          id="english"
+                          placeholder="English"
+                          value={this.state.english}
+                          onChange={this.englishInput}
+                        />
+                        <textarea
+                          className="text-area"
+                          id="morse"
+                          placeholder="Morse"
+                          value={this.state.morse}
+                          onChange={this.morseInput}
+                        />
+                      </div>
+                      <h1 className="morse-helper-header">
+                        (Valid) Morse Code Characters
+                      </h1>
+                      <p className="morse-helper-text">
+                        A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.", G
+                        "--.", H "....", I "..", J ".---", K "-.-", L ".-..", M
+                        "--", N "-.", O "---", P ".--.", Q "--.-", R ".-.", S
+                        "...", T "-", U "..-", V "...-", W ".--", X "-..-", Y
+                        "-.--", Z "--..",
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src="http://swiperjs.com/demos/images/nature-1.jpg"
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src="http://swiperjs.com/demos/images/nature-1.jpg"
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src="http://swiperjs.com/demos/images/nature-1.jpg"
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="swiper-slide">
+                    <img
+                      src="http://swiperjs.com/demos/images/nature-1.jpg"
+                      className="slide-content"
+                    />
+                  </SwiperSlide>
+                </Swiper>
               </div>
             </div>
           </div>
