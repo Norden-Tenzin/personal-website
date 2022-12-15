@@ -1,20 +1,20 @@
+//  js imports
 import React, { useRef, useState, createRef } from "react";
 import { Link } from "react-scroll";
 import { Sticky } from "semantic-ui-react";
 import _ from "lodash";
 import * as morse from "./morse";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper";
+import { EffectCoverflow, Pagination, Navigation } from "swiper";
 
-// Import Swiper styles
+// css imports
 import "./css/stylesheet.css";
 import "swiper/swiper.min.css";
 import "swiper/modules/effect-coverflow/effect-coverflow.min.css";
 import "swiper/modules/pagination/pagination.min.css";
-// import "./styles.css";
+import "swiper/modules/navigation/navigation.min.css";
 
-// import Github from "./svg";
-// import pic from "./assets/image.jpg";
+// assets imports
 import pdf from "./files/Norden-Tenzin-Resume.pdf";
 import resumeIcon from "./assets/resume.svg";
 import githubIcon from "./assets/github.svg";
@@ -24,13 +24,6 @@ import linkedinIcon from "./assets/linkedin_xray.svg";
 import Route from "./Route";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 
-// fonts
-// import font from './font/Jiro.otf';
-
-// intro test
-// Computers have always
-// facinated me, it felt like magic. So it was a no brainer as to what I wanted to study in.
-
 export default class LandingPage extends React.Component {
   constructor(props) {
     super(props);
@@ -38,22 +31,24 @@ export default class LandingPage extends React.Component {
       isDesktop: false,
       english: "",
       morse: "",
+      width: 0,
+      height: 0,
     };
-    this.updatePredicate = this.updatePredicate.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
-    this.updatePredicate();
-    window.addEventListener("resize", this.updatePredicate);
+    this.updateWindowDimensions();
+    window.addEventListener("resize", this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.updatePredicate);
+    window.removeEventListener("resize", this.updateWindowDimensions);
   }
 
-  updatePredicate = () => {
-    this.setState({ isDesktop: window.innerWidth > 1220 });
-  };
+  updateWindowDimensions() {
+    this.setState({ width: window.innerWidth, height: window.innerHeight });
+  }
 
   englishInput = (e) => {
     this.setState({ english: "" });
@@ -73,43 +68,27 @@ export default class LandingPage extends React.Component {
 
   contextRef = createRef();
   render() {
-    const isDesktop = this.state.isDesktop;
     return (
       <div className="wrapper">
-        <img
-          src={require("./assets/qr-code.png")}
-          width="100"
-          className="background-logo"
-        />
+        {this.state.width >= 1500 ? (
+          <img
+            src={require("./assets/qr-code.png")}
+            width="100"
+            className="background-logo"
+          />
+        ) : (
+          ""
+        )}
+        <span style={{ position: "absolute", top: "0px", right: "0px" }}>
+          DEBUG: {this.state.width}
+        </span>
         <div className="landing">
           <div className="intro" id="home">
-            <div className="bar">
+            <a href="https://blacklivesmatter.com/"  className="bar">
               <span className="bar-content">Black Lives Matter</span>
-            </div>
+            </a>
             <div className="header-container">
               <div className="header-logo">tn.</div>
-              {/* <div className="header-links-container">
-                <Link
-                  activeClass="active"
-                  to="projects"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                >
-                  <h1 className="links">Projects</h1>
-                </Link>
-                <Link
-                  activeClass="active"
-                  to="morse"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                >
-                  <h1 className="links">Demo</h1>
-                </Link>
-              </div> */}
             </div>
             <div className="para-wrapper">
               <h1 className="para-header">Hi!! I'm Tenzin Norden,</h1>
@@ -243,9 +222,94 @@ export default class LandingPage extends React.Component {
             {/* morse code page */}
             <div>
               <div className="interactive" id="morse">
-                <h1 className="header-title">Morse Translator</h1>
-                <div className="card">
-                  {/* {window.innerWidth > 770 ? ( */}
+                <h1 className="header-title">Demo</h1>
+                <div className="test">
+                  <Swiper
+                    effect={"coverflow"}
+                    slidesPerView={"auto"}
+                    coverflowEffect={{
+                      rotate: 50,
+                      stretch: 0,
+                      depth: 100,
+                      modifier: 1,
+                    }}
+                    loop={true}
+                    pagination={true}
+                    centeredSlides={true}
+                    navigation={true}
+                    modules={[EffectCoverflow, Pagination, Navigation]}
+                    className="swiper"
+                  >
+                    <SwiperSlide className="swiper-slide">
+                      <div className="card">
+                        {/* {window.innerWidth > 770 ? ( */}
+                        <h1 className="title">Morse Translator</h1>
+                        <textarea
+                          className="text-area"
+                          id="english"
+                          placeholder="English"
+                          value={this.state.english}
+                          onChange={this.englishInput}
+                        />
+                        <textarea
+                          className="text-area"
+                          id="morse"
+                          placeholder="Morse"
+                          value={this.state.morse}
+                          onChange={this.morseInput}
+                        />
+                        {/* <h1 className="morse-helper-header">
+                          (Valid) Morse Code Characters
+                        </h1> */}
+                        <p className="morse-helper-text">
+                          A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.",
+                          G "--.", H "....", I "..", J ".---", K "-.-", L
+                          ".-..", M "--", N "-.", O "---", P ".--.", Q "--.-", R
+                          ".-.", S "...", T "-", U "..-", V "...-", W ".--", X
+                          "-..-", Y "-.--", Z "--..",
+                        </p>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src={require("./assets/qr-code.png")}
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src={require("./assets/background.jpg")}
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src="http://swiperjs.com/demos/images/nature-1.jpg"
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src="http://swiperjs.com/demos/images/nature-1.jpg"
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src="http://swiperjs.com/demos/images/nature-1.jpg"
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+                    <SwiperSlide className="swiper-slide">
+                      <img
+                        src="http://swiperjs.com/demos/images/nature-1.jpg"
+                        className="slide-content"
+                      />
+                    </SwiperSlide>
+                  </Swiper>
+                </div>
+                {/* <div className="card">
                   <div className="text-area-holder">
                     <textarea
                       className="text-area"
@@ -272,99 +336,11 @@ export default class LandingPage extends React.Component {
                     T "-", U "..-", V "...-", W ".--", X "-..-", Y "-.--", Z
                     "--..",
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
 
-            {/* carousel */}
-            <div>
-              <div className="test">
-                <Swiper
-
-                  effect={"coverflow"}
-                  slidesPerView={3}
-                  coverflowEffect={{
-                    rotate: 50,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 1,
-                  }}
-                  loop={true}
-                  pagination={true}
-                  centeredSlides = {false}
-                  modules={[EffectCoverflow, Pagination]}
-                  className="swiper"
-                >
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src={require("./assets/qr-code.png")}
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src={require("./assets/background.jpg")}
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <div className="card">
-                      {/* {window.innerWidth > 770 ? ( */}
-                      <div className="text-area-holder">
-                        <textarea
-                          className="text-area"
-                          id="english"
-                          placeholder="English"
-                          value={this.state.english}
-                          onChange={this.englishInput}
-                        />
-                        <textarea
-                          className="text-area"
-                          id="morse"
-                          placeholder="Morse"
-                          value={this.state.morse}
-                          onChange={this.morseInput}
-                        />
-                      </div>
-                      <h1 className="morse-helper-header">
-                        (Valid) Morse Code Characters
-                      </h1>
-                      <p className="morse-helper-text">
-                        A ".-", B "-...", C "-.-.", D "-..", E ".", F "..-.", G
-                        "--.", H "....", I "..", J ".---", K "-.-", L ".-..", M
-                        "--", N "-.", O "---", P ".--.", Q "--.-", R ".-.", S
-                        "...", T "-", U "..-", V "...-", W ".--", X "-..-", Y
-                        "-.--", Z "--..",
-                      </p>
-                    </div>
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src="http://swiperjs.com/demos/images/nature-1.jpg"
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src="http://swiperjs.com/demos/images/nature-1.jpg"
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src="http://swiperjs.com/demos/images/nature-1.jpg"
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="swiper-slide">
-                    <img
-                      src="http://swiperjs.com/demos/images/nature-1.jpg"
-                      className="slide-content"
-                    />
-                  </SwiperSlide>
-                </Swiper>
-              </div>
-            </div>
+            <div className="footer"></div>
           </div>
         </div>
       </div>

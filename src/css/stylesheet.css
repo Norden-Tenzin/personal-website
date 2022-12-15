@@ -24,33 +24,11 @@
   top: 0;
   margin-left: 30px;
 }
-.header-logo {
-  font-size: 10em;
-  color: rgb(255, 159, 111);
-  font-family: "Potta One", cursive;
-}
-
-.header-links-col {
-  font-size: 1.5em;
-  margin-top: 80px;
-}
-.header-links-col .links {
-  font-size: clamp(0.55em, 2vw, 1.25em);
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.header-link {
-  font-size: 2em;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
 .header-links-sticky-container {
   font-size: 2em;
+  height: 64px;
   background-color: rgb(255, 159, 111);
   display: flex;
-  height: 64px;
   justify-content: space-evenly;
   align-items: center;
 }
@@ -78,24 +56,25 @@
 
 @-webkit-keyframes move {
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
 @keyframes move {
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 .landing {
   display: flex;
   flex-direction: column;
   max-width: 1280px;
+  min-width: 600px;
 }
 .landing .intro {
   background-color: rgb(252, 242, 234);
-  display: grid;
-  grid-template-rows: auto auto auto 1fr 1fr 28rem;
+  display: inline-grid;
+  grid-template-rows: auto 14rem auto 1fr 1fr 21rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas: "roll roll roll roll roll roll roll roll roll roll" "header header header header header header header header header header" ". . . . . . . . . ." ". . . main main main main main main ." ". . . main main main main main main ." ". . . . footer footer . . . .";
 }
@@ -119,22 +98,17 @@
   white-space: nowrap;
 }
 .landing .intro .header-container {
-  height: 200px;
   grid-area: header;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 .landing .intro .header-container .header-logo {
   font-size: 15em;
   color: rgb(255, 159, 111);
-  margin: 5rem 1rem;
+  margin: 1rem 1rem;
   font-family: "Potta One", cursive;
   cursor: default;
-}
-.landing .intro .header-container .header-links-container {
-  cursor: pointer;
-}
-.landing .intro .header-container .header-links-container .header-links {
-  font-size: 2em;
 }
 .landing .intro .para-wrapper {
   margin-top: 50px;
@@ -215,96 +189,32 @@
 }
 
 .interactive {
+  height: 65rem;
   background-color: rgb(252, 242, 234);
   display: flex;
   flex-direction: column;
-}
-.interactive .card {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 12px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  padding: 5px;
-  flex-grow: 1;
-  background-color: rgb(255, 186, 151);
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  text-align: center;
 }
 .interactive .header-title {
   font-size: clamp(5em, 6vw, 8em);
   padding-top: 20px;
   padding-left: 30px;
 }
-.interactive .text-area-holder {
-  display: flex;
-  align-items: stretch;
-  height: 20vw;
-}
-.interactive .text-area-holder .text-area {
-  margin: 5px;
-  border-radius: 12px;
-  resize: none;
-  flex-grow: 2;
-  padding: 10px;
-  font-size: x-large;
-  text-transform: uppercase;
-  background-color: rgb(255, 248, 239);
-}
-.interactive .text-area-holder .text-area:hover {
-  background-color: rgb(255, 233, 222);
-  border-radius: 12px;
-}
-.interactive .text-area-holder .text-area:focus {
-  outline: none;
-  border-radius: 12px;
-  background-color: rgb(255, 233, 222);
-}
-.interactive .text-area-holder-responsive {
-  margin: 5px;
-  border-radius: 12px;
-  resize: none;
-  flex-grow: 2;
-  padding: 10px;
-  font-size: x-large;
-  text-transform: uppercase;
-  background-color: rgb(255, 248, 239);
-}
-.interactive .text-area-holder-responsive:hover {
-  background-color: rgb(255, 233, 222);
-  border-radius: 12px;
-}
-.interactive .text-area-holder-responsive:focus {
-  border-radius: 12px;
-  background-color: rgb(255, 233, 222);
-}
-.interactive .morse-helper-header {
-  font-size: clamp(2em, 6vw, 3em);
-}
-.interactive .morse-helper-text {
-  font-size: clamp(1rem, 2.5vw, 1.5rem);
-}
-
-.test {
-  height: 90vh;
+.interactive .test {
   background-color: rgb(252, 242, 234);
 }
-.test .swiper {
+.interactive .test .swiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
 }
-.test .swiper .swiper-slide {
+.interactive .test .swiper .swiper-slide {
   background-position: center;
   height: 30rem;
   width: 30rem;
   overflow: hidden;
   border-radius: 30px;
 }
-.test .swiper .swiper-slide .slide-content {
+.interactive .test .swiper .swiper-slide .slide-content {
   width: 100%;
   height: 100%;
   -drag: none;
@@ -316,4 +226,45 @@
   text-align: center;
   -o-object-fit: fill;
      object-fit: fill;
+}
+
+.card {
+  height: 30rem;
+  background-color: rgb(255, 159, 111);
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-content: stretch;
+}
+.card .title {
+  margin: 10px 20px 0px 20px;
+  font-size: 2.5em;
+  font-family: "Montserrat";
+  color: white;
+}
+.card .text-area {
+  height: 5rem;
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-radius: 15px 15px 15px 15px;
+  resize: none;
+  padding-top: 10px;
+  padding-left: 10px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  background-color: white;
+}
+.card .text-area:hover {
+  background-color: white;
+}
+.card .text-area:focus {
+  background-color: white;
+}
+.card .morse-helper-text {
+  margin-top: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-size: 1.6em;
+  font-weight: bold;
 }/*# sourceMappingURL=stylesheet.css.map */
